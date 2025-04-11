@@ -23,6 +23,6 @@ public class PayrollCalculator {
         System.out.println("Gross Pay: €" + grossPay);
 
 
-        scanner.close();
+        scanner.close(); :;
     }
 }
