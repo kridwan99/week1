@@ -9,5 +9,6 @@ public class Main {
         booking.addPass(new SeniorPass("Grandpa Joe", 50.0));
 
         booking.printSummary();
+
     }
 }
