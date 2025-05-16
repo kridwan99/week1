@@ -35,8 +35,9 @@ public class Player {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", Name: " + name + ", Position: " + position +
-                ", Age: " + age + ", Goals: " + goals + ", Assists: " + assists +
-                ", Contract Expiry: " + contractExpiry;
+        return String.format(
+                "ID: %d | Name: %-15s | Pos: %-10s | Age: %2d | Goals: %3d | Assists: %3d | Contract Expiry: %s",
+                id, name, position, age, goals, assists, contractExpiry
+        );
     }
 }

@@ -1,5 +1,5 @@
-
 package week5.RealMadridTeam;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,17 +11,21 @@ public class Team {
     public Team(String name, String stadium) {
         this.name = name;
         this.stadium = stadium;
-        this.roster = PlayerFileManager.loadPlayers(); // Load players from file
+        this.roster = PlayerFileManager.loadPlayers();
     }
 
     public void addPlayer(Player player) {
         roster.add(player);
-        PlayerFileManager.savePlayers(roster); // Save to file
+        PlayerFileManager.savePlayers(roster);
     }
 
     public void removePlayer(int id) {
         roster.removeIf(player -> player.getId() == id);
-        PlayerFileManager.savePlayers(roster); // Save to file
+        PlayerFileManager.savePlayers(roster);
+    }
+
+    public List<Player> getAllPlayers() {
+        return new ArrayList<>(roster);
     }
 
     public List<Player> searchByName(String name) {
