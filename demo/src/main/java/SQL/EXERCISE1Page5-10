@@ -1,0 +1,50 @@
+
+-- 1. Add a new supplier.
+
+INSERT INTO northwind.Suppliers (CompanyName, ContactName, Address, City, Country, Phone)
+VALUES ('Super Fresh Supplies', 'Jane Doe', '123 Market St', 'San Francisco', 'USA', '123-456-7890');
+
+-- 2. Add a new product provided by that supplier
+
+INSERT INTO northwind.Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+VALUES ('Organic Avocado Oil', 30, 1, '12 bottles', 20.00, 100, 0, 10, 0);
+
+
+-- 3. List all products and their suppliers.
+
+SELECT P.ProductName, S.CompanyName
+FROM northwind.Products P
+JOIN northwind.Suppliers S ON P.SupplierID = S.SupplierID;
+
+-- 4. Raise the price of your new product by 15%.
+
+UPDATE northwind.Products
+SET UnitPrice = UnitPrice * 1.15
+WHERE ProductName = 'Organic Avocado Oil';
+
+
+-- 5. List the products and prices of all products from that supplier.
+
+SELECT ProductName, UnitPrice
+FROM northwind.Products
+WHERE SupplierID = 30;
+
+-- 6. Delete the new product.
+DELETE FROM northwind.Products
+WHERE ProductName = 'Organic Avocado Oil';
+
+
+
+-- 7. Delete the new supplier.
+
+DELETE FROM northwind.Suppliers
+WHERE CompanyName = 'Super Fresh Supplies';
+
+-- 8. List all products.
+
+SELECT * FROM northwind.Products;
+
+-- 9. List all suppliers.
+
+SELECT * FROM northwind.Suppliers;
+
